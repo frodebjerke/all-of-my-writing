@@ -32,4 +32,6 @@ version {
 ```
 Here consumers would query against the `api_versions` to ensure their demands are met. In the mean time the `service_version` will tell the version of the service code itself. I believe the patch number of all `api_versions` should be bumped when a new version of the service is released. This such that you consumers more easiliy can give you notice if an unforseen bug when changing some seemingly unrelated code has arised.
 
+# TODO
+- carry on writing
 - service discovery with info about what api version needed a service discloses what api versions it holds
