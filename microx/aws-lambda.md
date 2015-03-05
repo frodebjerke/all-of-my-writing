@@ -2,7 +2,7 @@
 
 > An event-driven computing service for the cloud
 
-Amazon AWS new service Lambda runs your code in response to events. All things operation is really done for you from scaling, availability to logging and monitoring. Instead of renting compute power Lambda lets you ship code and it will run it in response to specified events. Pricing in lambda is therefore based on how much computing time your functions use and have a really lenient free tier.
+Amazon AWS' new service Lambda runs your code in response to events. All things operation is really done for you from scaling, availability to logging and monitoring. Instead of renting compute power Lambda lets you ship code and run it in response to specified events. Pricing in lambda is therefore based on how much computing time your functions use. A pretty lenient free tier is also included.
 
 <!-- -->
 >AWS Lambda is one more abstraction that lowers the necessity of what we have to build and maintain to the absolute minimum. By giving us a scalable, event-based infrastructure we can split up tasks that we might not have wanted to split previously because of operational complexity.
@@ -10,7 +10,7 @@ Amazon AWS new service Lambda runs your code in response to events. All things o
 > *Florian Motlik - [blog.codeship.com](http://blog.codeship.com/aws-lambda-introduction/?utm_source=CodeshipNewsletter&utm_medium=newsletter&utm_campaign=AWS)*
 
 
-When creating Lambda Amazon wanted users to enjoy the following properties. No infrastructure to be managed. Pricing based on the time your code is actually being run. No vendor specific code or library needed your code should work just as anywhere else.
+When creating Lambda Amazon wanted users to enjoy the following properties: No infrastructure to be managed. Pricing based on the time your code is actually being run. No vendor specific code or library needed, your code should simply work as anywhere else.
 
     // An actual codesnippet running on AWS Lambda
     exports.handler = function(event, context) {
