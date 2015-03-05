@@ -22,7 +22,9 @@ When creating Lambda Amazon wanted users to enjoy the following properties: No i
 
 Events are central when working with Lambda. More and more of AWS tools and services now emits events. S3 will emit an event when something is changed. DynamoDB offers a stream of delta changes of the data stored. In addition Lambda can listen to custom events from the like of your web application or internet of things box.
 
+Worth to mention is that Lambda is not designed for request response. Hence replacing your entire backend with Lambda is probably not the way to go yet. You would need some backend or database that will serve data back to your client, Lambda's could be very capable of doing the actual writing and updating. More obvious matches for Lambda however are in the like of doing background jobs, sanitizing data and aggregating data.  
+
 <!-- -->
 > Tag code to your data
 
-Not long ago servers where being cuddled and cared of by ops. Today we are seeing a drift towards immutable server patterns where the servers themselves are ephemeral and provisioned programmatically. Lambda is really a step even further where your server only last for the milliseconds a request takes to process before it goes away. 
+Not long ago servers where being cuddled and cared of by ops. Today we are seeing a drift towards immutable server patterns where the servers themselves are ephemeral and provisioned programmatically. Lambda is really a step even further where your server only last for the milliseconds a request takes to process before it goes away.
