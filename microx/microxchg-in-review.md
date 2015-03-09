@@ -30,3 +30,23 @@ An important trick implemented by many of the companies building microservices i
 > *Adrian Cockroft - Former cloud architect at Netflix.*
 
 From the conference there were really three main wins by putting developers on call. First the number of errors in production dropped dramatically. Developers really loath being called in at the middle of the night. Second, supporting tools became much better and more numerous. And last developers get more freedom in choosing appropriate technology as it is themselves that must operate it.
+
+This approach is not without drawbacks however. Developers will not like it at all. There will be a lot of shouting initially.
+
+## And databases
+Transactional databases no longer viable as your system is highly distributed.
+
+> Nobody talks to my database.
+
+## Generic architecture review
+A generic architecture review of a large system looks something like the following
+- Building features takes too long
+- Technical debt well-known and not addressed.
+- Deploy is way too complicated and slow
+- Architectural quality has degraded
+- Scalability has reached its limit
+- -ility problems
+- Replacement way too expensive
+
+## Project equals system is stupid
+Who are the initiator of a project to say the system boundraries
