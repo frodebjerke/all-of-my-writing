@@ -50,3 +50,11 @@ A generic architecture review of a large system looks something like the followi
 
 ## Project equals system is stupid
 Who are the initiator of a project to say the system boundraries
+
+## Conway's Law
+
+> Organizations which design systems ... are constrained to produce designs which are copies of the communication structures of these organizations.
+>
+> *M. Conway*
+
+**Sam Newman's blogpost - [Demystifying Conway's Law](http://www.thoughtworks.com/insights/blog/demystifying-conways-law)**
