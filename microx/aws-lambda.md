@@ -2,7 +2,7 @@
 
 > An event-driven computing service for the cloud
 
-Amazon AWS' new service Lambda runs your code in response to events. All things operation are handled and mainted for you, from scaling, availability to logging and monitoring. Instead of renting compute power Lambda lets you ship code and run it in response to specified events. Pricing in lambda is therefore based on how much computing time your functions use. A pretty lenient free tier is also included.
+Amazon AWS' new service Lambda runs your code in response to events. All things operation are handled and maintaned for you, from scaling, availability to logging and monitoring. Instead of renting compute power Lambda lets you ship code and run it in response to specified events. Pricing in lambda is therefore based on how much computing time your functions use. A pretty lenient free tier is also included.
 
 <!-- -->
 >AWS Lambda is one more abstraction that lowers the necessity of what we have to build and maintain to the absolute minimum. By giving us a scalable, event-based infrastructure we can split up tasks that we might not have wanted to split previously because of operational complexity.
