@@ -22,4 +22,11 @@ Netflix uses microservices. Netflix' adventure into microservices has really bee
 
 Spring is a frameworke used in many Java projects. Among their newcomings is [Spring Boot](http://projects.spring.io/spring-boot/). What Spring Boot really does is creating opinonated applications favoring convention over configuration. Spring Boot will use default configuration where none is given and
 
-## Run what you wrote
+## Developers on call
+An important trick implemented by many of the companies building microservices is putting developers on call. That means making developers responsible of the operation of the services themselves have created.
+
+> At Netflix you (as a developer) are done when your code is no longer in production
+>
+> *Adrian Cockroft - Former cloud architect at Netflix.*
+
+From the conference there were really three main wins by putting developers on call. First the number of errors in production dropped dramatically. Developers really loath being called in at the middle of the night. Second, supporting tools became much better and more numerous. And last developers get more freedom in choosing appropriate technology as it is themselves that must operate it.
