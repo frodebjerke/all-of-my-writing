@@ -2,7 +2,7 @@
 
 > An event-driven computing service for the cloud
 
-Amazon AWS' new service Lambda runs your code in response to events. All things operation is really done for you from scaling, availability to logging and monitoring. Instead of renting compute power Lambda lets you ship code and run it in response to specified events. Pricing in lambda is therefore based on how much computing time your functions use. A pretty lenient free tier is also included.
+Amazon AWS' new service Lambda runs your code in response to events. All things operation are handled and mainted for you, from scaling, availability to logging and monitoring. Instead of renting compute power Lambda lets you ship code and run it in response to specified events. Pricing in lambda is therefore based on how much computing time your functions use. A pretty lenient free tier is also included.
 
 <!-- -->
 >AWS Lambda is one more abstraction that lowers the necessity of what we have to build and maintain to the absolute minimum. By giving us a scalable, event-based infrastructure we can split up tasks that we might not have wanted to split previously because of operational complexity.
@@ -10,19 +10,23 @@ Amazon AWS' new service Lambda runs your code in response to events. All things 
 > *Florian Motlik - [blog.codeship.com](http://blog.codeship.com/aws-lambda-introduction/?utm_source=CodeshipNewsletter&utm_medium=newsletter&utm_campaign=AWS)*
 
 
-When creating Lambda Amazon wanted users to enjoy the following properties: No infrastructure to be managed. Pricing based on the time your code is actually being run. No vendor specific code or library needed, your code should simply work as anywhere else.
-
-    // An actual codesnippet running on AWS Lambda
-    exports.handler = function(event, context) {
-        context.done(null, 'Hello World');
-    };
-
+When creating Lambda, Amazon wanted users to enjoy the following properties:
+- No infrastructure to be managed.
+- Pricing based on the time your code is actually being run.
+- No vendor specific code or library needed, your code should simply work as anywhere else.
 
 **Talk from re:Invent - [Getting started with Lambda](https://www.youtube.com/watch?v=UFj27laTWQA)**
 
 Events are central when working with Lambda. More and more of AWS tools and services now emits events. S3 will emit an event when something is changed. DynamoDB offers a stream of delta changes of the data stored. In addition Lambda can listen to custom events from the like of your web application or internet of things box.
 
-Worth to explicitly mention is that Lambda is not designed for request response. Hence replacing your entire backend with Lambda is probably not the way to go just yet. As the backend for your applicaiton you would need some other backend or database that can serve data back to your clients, Lambda's could be very capable of doing the actual writing and updating. More obvious matches for Lambda however are in the like of doing background jobs, sanitizing data and aggregating data.  
+```
+// An actual codesnippet running on AWS Lambda
+exports.handler = function(event, context) {
+    context.done(null, 'Hello World');
+};
+```
+
+Worth to explicitly mention is that Lambda is not designed for request response. Hence replacing your entire backend with Lambda is probably not the way to go just yet. As the backend for your application you would need some other backend or database that can serve data back to your clients, Lambda's could be very capable of doing the actual writing and updating. More obvious matches for Lambda however are in the like of doing background jobs, sanitizing data and aggregating data.
 
 <!-- -->
 > Tag code to your data
