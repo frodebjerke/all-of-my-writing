@@ -14,12 +14,16 @@ The simple rules are as follows:
 - Use nouns not verbs
 - Use plural nouns
 - Use concrete names
-
 ````
 naming example; concrete, simple and plural
 ````
 
 The hard part is one of the three hard things in computer science, naming. Finding the best easy to use self explanatory noun is tough.
+
+Sometimes you have operations that do not involve resources ie language translations or currency conversion. In such scenarios you should use verbs not nouns for the name of your "resource".
+````
+/convert?text="prejudice"&from="english"&to="norwegian"
+````
 
 ## Resource structure
 
@@ -34,10 +38,6 @@ two base urls example
 2. The CRUD (create, read, update and delete) operations on your resource are all implemented with the two base urls using the HTTP methods POST, GET, PUT and DELETE.
 ````
 full CRUD interface example
-````
-3. Sometimes you have operations that do not involve resources ie language translations or currency conversion. In such scenarios you should use verbs not nouns for the name of your "resource".
-````
-/convert?text="prejudice"&from="english"&to="norwegian"
 ````
 
 ## Payload
