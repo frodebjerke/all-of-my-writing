@@ -105,9 +105,9 @@ An often hastened or neglected part of APIs are the behavior when things go wron
 
 Standardize on some few HTTP status codes. There are an awful lot of status codes available. There are however more value in returning good error messages than being granular in the use of HTTP status code. To start of the following status codes are often sufficient:
 ````
-200 - OK
-400 - Bad Request
-500 - Internal Server Error
+200 - OK                              <- Great!
+400 - Bad Request                     <- User or client's fault
+500 - Internal Server Error           <- Your or infrastructure's fault
 ````
 In short 200 is for all successful requests. 400 for all requests where the client sent a bad request such as invalid data, non sufficient authorization or a false url. At last 500s are for any valid client request where the API failed to process the request successfully such as a database timeout or an erroneous program. If you decide to use more status codes than just these few it should be based on a need for more granular control within these general classes of status codes.
 
