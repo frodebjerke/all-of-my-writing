@@ -25,7 +25,7 @@ Good:
 - /horses
 ````
 
-The hard part is one of the three hard things in computer science, naming. Finding the best easy to use self explanatory noun is tough.
+The hard part is naming. Naming can be surprisingly difficult. Finding the best easy to use self explanatory noun is tough.
 
 Sometimes you have operations that do not involve resources ie language translations or currency conversion. In such scenarios you should use verbs not nouns for the name of your "resource".
 ````
