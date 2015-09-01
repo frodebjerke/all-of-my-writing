@@ -110,7 +110,6 @@ An often hastened or neglected part of APIs are the behavior when things go wron
 500 - Internal Server Error
 ````
 In short 200 is for all successful requests. 400 for all requests where the client sent a bad request such as invalid data, non sufficient authorization or a false url. At last 500s are for any valid client request where the API failed to process the request successfully such as a database timeout or an erroneous program. If you decide to use more status codes than just these few it should be based on a need for more granular control within these general classes of status codes.
-
 2. In addition to use an appropriate status code you should help developers and users to understand what is wrong by beeing as specific as possible in your error messages. Using a uniform error object structure could also be beneficial. If there are more information on the error somewhere, link to it. Remember you might very well be the one to debug these errors down the line.
 ````
 {
