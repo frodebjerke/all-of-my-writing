@@ -103,14 +103,15 @@ Accept: application/hal+json
 
 An often hastened or neglected part of APIs are the behavior when things go wrong. That goes for both controlled and uncontrolled scenarios. For being pragmatic one should not over engineer how the API behaves in these scenarios early on, but some low hanging fruits should definitely be harvested to help developers along.
 
-1. Standardize on some few HTTP status codes. There are an awful lot of status codes available. There are however more value in returning good error messages than being granular in the use of HTTP status code. To start of the following status codes are often sufficient:
+Standardize on some few HTTP status codes. There are an awful lot of status codes available. There are however more value in returning good error messages than being granular in the use of HTTP status code. To start of the following status codes are often sufficient:
 ````
 200 - OK
 400 - Bad Request
 500 - Internal Server Error
 ````
 In short 200 is for all successful requests. 400 for all requests where the client sent a bad request such as invalid data, non sufficient authorization or a false url. At last 500s are for any valid client request where the API failed to process the request successfully such as a database timeout or an erroneous program. If you decide to use more status codes than just these few it should be based on a need for more granular control within these general classes of status codes.
-2. In addition to use an appropriate status code you should help developers and users to understand what is wrong by beeing as specific as possible in your error messages. Using a uniform error object structure could also be beneficial. If there are more information on the error somewhere, link to it. Remember you might very well be the one to debug these errors down the line.
+
+In addition to use an appropriate status code you should help developers and users to understand what is wrong by beeing as specific as possible in your error messages. Using a uniform error object structure could also be beneficial. If there are more information on the error somewhere, link to it. Remember you might very well be the one to debug these errors down the line.
 ````
 {
     "developerMessage": "Could not connect to database; connection pool exceeded.",
