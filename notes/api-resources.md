@@ -67,7 +67,7 @@ Content-Type: application/json
 Accept: application/hal+json
 {
   "_links": {
-    "self": {
+    "self": {
       "href": "/unicorns"
     }
   },
