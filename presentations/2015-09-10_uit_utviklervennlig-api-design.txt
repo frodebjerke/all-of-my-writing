@@ -1,0 +1,204 @@
+class: center, middle
+
+# Utviklervennlig API-design
+Frode Bjerke
+
+---
+
+# Motivasjon
+
+HTTP REST APIer har vokst frem som en bransjestandard for kommunikasjon mellom webtjenere.
+
+## Brukes til bl.a
+- Webapplikasjoner (særlig single page applications)
+- Mobilapplikasjoner
+- Integrasjon mellom egne og eksterne tjenester (f.eks Spotify sitt API)
+
+Største styrker: **Enkelhet og stor frihet**
+
+Største svakhet: **Stor frihet**
+
+---
+
+# Brukervennlighet
+
+## Affordance
+> *An affordance is often taken as a relation between an object or an environment and an organism, that affords the opportunity for that organism to perform an action.*
+
+## På menneskespråk
+> Å forstå hvordan noe skal brukes uten å måtte lese bruksanvisningen.
+
+*Wikipedia om affordance: https://en.wikipedia.org/wiki/Affordance*
+
+---
+# Konvensjoner
+
+Når man jobber med REST APIer har man noen **forventninger** for hvordan APIet er **utformet**.
+
+Jo tettere man følger disse satte konvensjonene jo mer brukervennlig vil APIet oppfattes.
+
+---
+# Ressursnavn
+
+- Bruk substantiv ikke verb
+- Bruk flertall
+- Bruk konkrete navn
+
+````
+Bad:
+- /unicorn
+Meh:
+- /animals
+Good:
+- /unicorns
+- /horses
+````
+
+---
+# Urlstruktur
+
+- Kun 2* baseurler per ressurs
+- Bruker HTTP metodene GET, PUT, POST og DELETE
+
+````
+/unicorns
+/unicorns/12345
+````
+
+(\*) *Med unntak av urler til relaterte ressurser*
+
+---
+# Basisfunksjoner
+
+## CRUD
+**C**reate, **R**ead, **U**pdate, **D**elete
+````
+GET    /unicorns            <- Alle unicorns
+GET    /unicorns/12345      <- Unicorn med id 12345
+POST   /unicorns            <- Lag en unicorn
+PUT    /unicorns            <- Endre mange unicorns
+PUT    /unicorns/12345      <- Endre unicorn med id 12345
+DELETE /unicorns            <- Slett alle unicorns
+DELETE /unicorns/12345      <- Slett unicorn med id 12345
+````
+
+---
+# Avanserte funksjoner
+
+Filtrering, paginering, søk og valg av attributter
+
+## Gjem kompleksitet bak **?**-tegnet.
+
+````
+Bad:
+/unicorns/youngerThanTwenty         <- Greit om APIet er veldig lite,
+/unicorns/getByOwner/98765             blir fort uoversiktelig
+
+Good:
+/unicorns?maxAge=19
+/unicorns?ownerId=98765
+/unicorns?orderBy=age
+/unicorns?limit=10&offset=100
+/unicorns?fields=name,age
+````
+
+*Husk: Et endepunkt og en metode ikke er det samme.*
+
+---
+exclude: true
+# Ikke en ressurs
+
+Noen ganger lager man endepunkter som er rene operasjoner, ikke en ressurs.
+
+## Bruk verb ikke substantiv
+
+For eksempel oversetting:
+````
+/translate?text="intergalactic planetary"&from=english&to=norwegian
+````
+
+---
+exclude: true
+# Relaterte ressurser
+
+## Enklest
+Alltid send med relaterte ressurser i resultatet
+
+## "Bedre"
+1. Uniform lenkestruktur for aksessering av relaterte ressurser.
+````
+GET /unicorns/12345/friends           <- Alle vennene til en unicorn
+````
+2. Synligjør relaterte ressurser ved å sende med urlene som metadata i en ressurs. Det er dette som er *hypermedier*.
+
+*Martin Fowler om REST API modenhets modell: http://martinfowler.com/articles/richardsonMaturityModel.html*
+
+---
+# Innholdet
+
+- Bruk javascripts navnekonvensjoner
+- Standardiser på en måte å pakke innholdet.
+- Vurder å bruke eller basere seg på en spesifikasjon for pakking av data. F.eks: JSON.API, JSend eller HAL
+
+````JSON
+{
+  "_links": {
+    ...
+  },
+  "_embedded": {            <- Dette er sånn ca slik HAL ser ut
+    ...
+  },
+  ...
+}
+````
+*Airbnb sin stilguide for javascript: https://github.com/airbnb/javascript*
+
+*Gjennomgang av hypermedieformater: http://sookocheff.com/post/api/on-choosing-a-hypermedia-format/*
+---
+class: middle
+# Feilhåndtering
+
+Det viktigste med feilhåndtering er å hjelpe deg med å finne feilen.
+
+---
+# Bruk få statuskoder
+
+- Viktigere med detaljerte feilmeldinger enn detaljerte statuskoder
+- Enklere for utvikler å jobbe mot
+
+````
+200 - OK                              <- Alt gikk bra!
+400 - Bad Request                     <- Bruker eller klientens feil
+500 - Internal Server Error           <- Programmet eller infrastrukturens feil
+````
+
+*Apigee om feilsituasjoner: http://apigee.com/about/blog/technology/restful-api-design-what-about-errors*
+---
+# Detaljerte feilmeldinger
+
+- **Beskrivelse** av og **hint** til hvordan man kan *løse* feilen som har oppstått.
+- Bruk **ett** format på feilmeldinger
+
+````JSON
+{
+    "developerMessage": "Could not connect to database; connection pool exceeded.",
+    "userMessage": "Could not process your request at the moment, please try again later.",
+    "statusCode": 500,
+    "errorCode": 1,
+    "moreInfo": "http://url.to.errorcode-info"
+}
+````
+
+*Jørans blogginnlegg om log: http://open.bekk.no/en-blog-om-log*
+---
+
+# Hovedinspirasjonskilde
+
+![Web API Design by Apigee](http://d38wlcdzwz02m5.cloudfront.net/about/sites/mktg-new/files/styles/ebook_cover_350x470_/public/ebooks/APIDesign_Big.jpg?itok=Z2uHu-xr)
+
+*Gratis e-bok mot emailaddresse (tar ca 1 time å lese perm til perm): http://apigee.com/about/resources/ebooks/web-api-design*
+
+---
+class: center, middle
+# Takk for meg
+Slider på **frode.xyz**
